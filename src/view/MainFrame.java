@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollPane;
 
 public class MainFrame extends JFrame {
 
@@ -99,7 +100,12 @@ public class MainFrame extends JFrame {
 		removeButton.setBounds(566, 289, 136, 30);
 		contentPane.add(removeButton);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(25, 228, 492, 241);
+		contentPane.add(scrollPane);
+		
 		table = new JTable();
+		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null},
@@ -115,8 +121,6 @@ public class MainFrame extends JFrame {
 				return columnEditables[column];
 			}
 		});
-		table.setBounds(25, 228, 492, 241);
-		contentPane.add(table);
 	}
 
 	public JTextField getVerticesCountTextField() {
