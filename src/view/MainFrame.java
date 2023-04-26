@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class MainFrame extends JFrame {
 
@@ -18,6 +20,7 @@ public class MainFrame extends JFrame {
 	private JButton generateButton;
 	private JComboBox<String> toComboBox;
 	private JComboBox<String> fromComboBox;
+	private JTable table;
 
 	/**
 	 * Create the frame.
@@ -95,6 +98,25 @@ public class MainFrame extends JFrame {
 		removeButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		removeButton.setBounds(566, 289, 136, 30);
 		contentPane.add(removeButton);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null},
+			},
+			new String[] {
+				"From", "To", "Weight"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+		table.setBounds(25, 228, 492, 241);
+		contentPane.add(table);
 	}
 
 	public JTextField getVerticesCountTextField() {
