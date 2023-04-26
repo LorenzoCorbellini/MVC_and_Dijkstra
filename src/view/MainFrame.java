@@ -60,6 +60,7 @@ public class MainFrame extends JFrame {
 		
 		fromComboBox = new JComboBox();
 		fromComboBox.setEnabled(false);
+		fromComboBox.setEditable(true);
 		fromComboBox.setBounds(68, 84, 72, 30);
 		contentPane.add(fromComboBox);
 		
@@ -70,6 +71,8 @@ public class MainFrame extends JFrame {
 		contentPane.add(toLabel);
 		
 		toComboBox = new JComboBox();
+		toComboBox.setEnabled(false);
+		toComboBox.setEditable(true);
 		toComboBox.setBounds(215, 84, 72, 30);
 		contentPane.add(toComboBox);
 		
